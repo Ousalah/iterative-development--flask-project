@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Menu List</title>
+  </head>
+  <body>
+
+    <h1>{{ restaurant.name }}</h1>
+    <h2><a href="#">Create New Item</a></h2>
+    {% if not items %}
+      You currently have no menu items.
+    {% else %}
+      {% for i in items %}
+        <div class="item-box">
+          <div class = 'nameAndPrice'>
+            <h3 class = 'name'><p>{{i.name}}</p></h3>
+            <span class = 'price'><p>{{i.price}} </p></span>
+          </div>
+          <div class = 'description'>
+            <p>{{i.description}}</p>
+          </div>
+          <div class = "editdeletepane">
+            <a href="#">Edit</a>
+            <a href="#">Delete</a>
+          </div>
+        </div>
+      {% endfor %}
+    {% endif %}
+
+  </body>
+</html>
