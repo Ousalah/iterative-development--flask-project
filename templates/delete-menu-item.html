@@ -6,10 +6,10 @@
   </head>
   <body>
 
-    <h1>Are you sure you want to delete "ITEM NAME"?</h1>
-    <form action="index.html" method="post">
+    <h1>Are you sure you want to delete "{{item.name}}"?</h1>
+    <form action="{{url_for('deleteMenuItem', restaurant_id=item.restaurant_id, menu_id=item.id)}}" method="post">
       <input type="submit" value="Delete">
-      <a href="#">Cancel</a>
+      <a href="{{url_for('showMenu', restaurant_id=item.restaurant_id)}}">Cancel</a>
     </form>
   </body>
 </html>

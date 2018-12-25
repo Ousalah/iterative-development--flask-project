@@ -8,30 +8,30 @@
     <div class = 'header'>
       <h1>Edit Menu Item</h1>
     </div>
-    <form action="#" method="post">
+    <form action="{{url_for('editMenuItem', restaurant_id = item.restaurant_id, menu_id=item.id)}}" method="post">
       <!--  -->
       <div class="">
         <label for="">Name:</label>
-        <input type ='text' name='name' placeholder = 'Edit item name'>
+        <input type ='text' name='name' placeholder = '{{item.name }}'>
       </div>
       <div class="">
         <label for="">Description:</label>
-        <textarea name = 'description' rows='5' cols='40' placeholder = 'Edit item description'></textarea>
+        <textarea name = 'description' rows='5' cols='40' placeholder = '{{item.description }}'></textarea>
       </div>
       <div class="">
         <label for="">Price:</label>
-        <input type ='text' name='price' placeholder = 'Edit item price'>
+        <input type ='text' name='price' placeholder = '{{item.price }}'>
       </div>
       <div class="">
         <label for="">Course:</label>
-        <div><input type ='radio' name='course' value='Appetizer' >Appetizer</div>
-        <div><input type ='radio' name='course' value='Entree' >Entree</div>
-        <div><input type ='radio' name='course' value='Dessert' >Dessert</div>
-        <div><input type ='radio' name='course' value='Beverage' >Beverage</div>
+        <div><input type ='radio' name='course' value='Appetizer' {% if item.course == 'Appetizer' %} checked {% endif %} >Appetizer</div>
+        <div><input type ='radio' name='course' value='Entree' {% if item.course == 'Entree' %} checked {% endif %} >Entree</div>
+        <div><input type ='radio' name='course' value='Dessert' {% if item.course == 'Dessert' %} checked {% endif %} >Dessert</div>
+        <div><input type ='radio' name='course' value='Beverage' {% if item.course == 'Beverage' %} checked {% endif %} >Beverage</div>
       </div>
 
       <input type='submit' value='Edit'>
-      <a href = '#'> Cancel </a>
+      <a href = '{{url_for('showMenu', restaurant_id = item.restaurant_id)}}'> Cancel </a>
       <!--  -->
     </form>
   </body>
